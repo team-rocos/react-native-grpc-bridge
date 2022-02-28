@@ -7,7 +7,7 @@ trigger:
   batch: true
   branches:
     include:
-      - master
+      - main
 pr: none
 
 pool:
@@ -34,7 +34,7 @@ steps:
 - script: yarn test
   displayName: 'Run unit tests'
 
-- script: yarn build
+- script: yarn prepare
   displayName: 'Build package'
 
 - script: yarn release
@@ -47,6 +47,6 @@ steps:
   inputs:
       command: 'custom'
       verbose: true
-      customCommand: publish dist
+      customCommand: publish
       customRegistry: useFeed
       customFeed: 'Rocos SDK/rocos-npm-public'
