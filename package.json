@@ -97,7 +97,10 @@
   "release-it": {
     "git": {
       "commitMessage": "chore: release ${version}",
-      "tagName": "v${version}"
+      "tagName": "v${version}",
+      "requireUpstream": false,
+      "requireCleanWorkingDir": false,
+      "pushRepo": "git@github.com:team-rocos/react-native-grpc-bridge.git"
     },
     "npm": {
       "publish": false
