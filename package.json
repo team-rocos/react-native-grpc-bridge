@@ -44,7 +44,7 @@
   },
   "homepage": "https://github.com/team-rocos/react-native-grpc-bridge#readme",
   "publishConfig": {
-    "registry": "https://pkgs.dev.azure.com/team-rocos/c46363e8-3452-44ca-ab9f-cd9f31880b59/_packaging/react-native-grpc-bridge/npm/registry/"
+    "registry": "https://pkgs.dev.azure.com/team-rocos/c46363e8-3452-44ca-ab9f-cd9f31880b59/_packaging/rocos-npm-public/npm/registry/"
   },
   "dependencies": {
     "abort-controller": "^3.0.0",
