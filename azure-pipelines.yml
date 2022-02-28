@@ -1,0 +1,52 @@
+# Node.js
+# Build a Node.js project
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+  batch: true
+  branches:
+    include:
+      - master
+pr: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  - group: default_pipeline_vars
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '12.x'
+  displayName: 'Install node'
+
+- task: DownloadSecureFile@1
+  name: npmrcBuildPipeline
+  displayName: 'Download .npmrc file used by build to publish npm packages'
+  inputs:
+    secureFile: 'npmrcBuildPipeline'
+
+- script: yarn install
+  displayName: 'Install npm packages'
+
+- script: yarn test
+  displayName: 'Run unit tests'
+
+- script: yarn build
+  displayName: 'Build package'
+
+- script: yarn release
+  displayName: 'Release package'
+  env:
+    GITHUB_TOKEN: $(GITHUBTOKEN)
+
+- task: Npm@1
+  displayName: 'Publish package'
+  inputs:
+      command: 'custom'
+      verbose: true
+      customCommand: publish dist
+      customRegistry: useFeed
+      customFeed: 'Rocos SDK/rocos-npm-public'
