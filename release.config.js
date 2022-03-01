@@ -55,6 +55,7 @@ module.exports = {
           'chore(release): ${nextRelease.version} \n\n[skip ci]\n${nextRelease.notes}',
       },
     ],
+    "@semantic-release/github",
     [
       'semantic-release-slack-bot',
       {

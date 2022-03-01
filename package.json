@@ -37,16 +37,17 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/team-rocos/react-native-grpc-bridge",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:team-rocos/react-native-grpc-bridge.git"
+  },,
+  "private": true,
   "author": "Matej Drobnic <matej.dr@gmail.com> (https://github.com/matejdr)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/team-rocos/react-native-grpc-bridge/issues"
   },
   "homepage": "https://github.com/team-rocos/react-native-grpc-bridge#readme",
-  "publishConfig": {
-    "registry": "https://pkgs.dev.azure.com/team-rocos/c46363e8-3452-44ca-ab9f-cd9f31880b59/_packaging/rocos-npm-public/npm/registry/"
-  },
   "dependencies": {
     "abort-controller": "^3.0.0",
     "eventemitter3": "^4.0.7",
