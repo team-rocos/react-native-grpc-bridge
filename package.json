@@ -36,10 +36,7 @@
     "ios",
     "android"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:team-rocos/react-native-grpc-bridge.git"
-  },
+  "repository": "https://github.com/team-rocos/react-native-grpc-bridge",
   "author": "Matej Drobnic <matej.dr@gmail.com> (https://github.com/matejdr)",
   "license": "MIT",
   "bugs": {
@@ -97,10 +94,7 @@
   "release-it": {
     "git": {
       "commitMessage": "chore: release ${version}",
-      "tagName": "v${version}",
-      "requireUpstream": false,
-      "requireCleanWorkingDir": false,
-      "pushRepo": "git@github.com:team-rocos/react-native-grpc-bridge.git"
+      "tagName": "v${version}"
     },
     "npm": {
       "publish": false

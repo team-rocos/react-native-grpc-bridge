@@ -37,7 +37,9 @@ steps:
 - script: yarn prepare
   displayName: 'Build package'
 
-- script: yarn release --ci
+- script: |
+    git config http.extraheader "AUTHORIZATION: bearer $(System.AccessToken)"
+    yarn release --ci
   displayName: 'Release package'
   env:
     GITHUB_TOKEN: $(GITHUBTOKEN)
