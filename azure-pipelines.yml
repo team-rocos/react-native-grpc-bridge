@@ -37,10 +37,10 @@ steps:
 - script: yarn prepare
   displayName: 'Build package'
 
-- script: yarn release --ci
+- script: yarn release
   displayName: 'Release package'
   env:
-    GITHUB_TOKEN: $(GITHUBTOKEN2)
+    GITHUB_TOKEN: $(GITHUBTOKEN)
 
 - task: Npm@1
   displayName: 'Publish package'
