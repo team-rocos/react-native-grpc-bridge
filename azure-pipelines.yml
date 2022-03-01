@@ -37,10 +37,7 @@ steps:
 - script: yarn prepare
   displayName: 'Build package'
 
-- script: |
-    echo $GITHUB_TOKEN
-    git config --global --add url."git@github.com:".insteadOf "https://github.com/"
-    yarn release
+- script: yarn release --ci
   displayName: 'Release package'
   env:
     GITHUB_TOKEN: $(GITHUBTOKEN)
