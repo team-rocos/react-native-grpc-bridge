@@ -38,6 +38,7 @@ steps:
   displayName: 'Build package'
 
 - script: |
+    echo $GITHUB_TOKEN
     git config --global --add url."git@github.com:".insteadOf "https://github.com/"
     yarn release
   displayName: 'Release package'
