@@ -21,6 +21,7 @@ nvm use
 ```
 
 ## Usage
+Please add the folloing lines at the begining of your react-native application. 
 
 ```js
 import { grpc } from '@improbable-eng/grpc-web';
