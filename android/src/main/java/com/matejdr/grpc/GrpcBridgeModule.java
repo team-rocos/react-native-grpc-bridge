@@ -88,9 +88,12 @@ public class GrpcBridgeModule extends ReactContextBaseJavaModule {
 
       byte[] data = Base64.decode(obj.getString("data"), Base64.NO_WRAP);
 
-      call.sendMessage(data);
-      call.request(1);
-//      call.halfClose();
+      try {
+        call.sendMessage(data);
+        call.request(1);
+      } catch (Exception error) {
+        promise.resolve(false);
+      }
 
       promise.resolve(true);
     } else {
@@ -103,7 +106,11 @@ public class GrpcBridgeModule extends ReactContextBaseJavaModule {
     if (callsMap.containsKey(id)) {
       ClientCall call = callsMap.get(id);
 
-      call.halfClose();
+      try {
+        call.halfClose();
+      } catch (Exception error) {
+        promise.resolve(false);
+      }
 
       promise.resolve(true);
     } else {
