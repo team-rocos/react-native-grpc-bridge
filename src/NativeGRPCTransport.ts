@@ -121,35 +121,35 @@ class NativeGRPC implements grpc.Transport {
 
     this.call.headers
       .then((cHeaders) => {
-        console.log('NativeGRPC.headers', cHeaders);
+        this.options.debug && console.log('NativeGRPC.headers', cHeaders);
         this.options.onHeaders(
           new grpc.Metadata({ 'grpc-status': '0', ...cHeaders }),
           200
         );
       })
       .catch((error) => {
-        console.log('NativeGRPC.error', error);
+        this.options.debug && console.log('NativeGRPC.error', error);
         this.options.onEnd(error);
       });
 
     this.call.responses.on('data', (data) => {
-      console.log('NativeGRPC.data', data);
+      this.options.debug && console.log('NativeGRPC.data', data);
       this.options.onChunk(frameResponse(data));
     });
 
     this.call.responses.on('complete', () => {
-      console.log('NativeGRPC.complete');
+      this.options.debug && console.log('NativeGRPC.complete');
       this.options.onEnd();
     });
 
     this.call.responses.on('error', (reason) => {
-      console.log('NativeGRPC.error', reason);
+      this.options.debug && console.log('NativeGRPC.error', reason);
       this.options.onEnd(reason);
     });
   }
 
   cancel() {
-    console.log('NativeGRPC.cancel');
+    this.options.debug && console.log('NativeGRPC.cancel');
     this.call.cancel();
   }
 }
