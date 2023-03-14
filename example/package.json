@@ -1,6 +1,6 @@
 {
   "name": "react-native-grpc-bridge-example",
-  "description": "Example app for @rocos/react-native-grpc-bridge",
+  "description": "Example app for @team-rocos/react-native-grpc-bridge",
   "version": "0.0.1",
   "private": true,
   "scripts": {

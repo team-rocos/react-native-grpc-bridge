@@ -55,18 +55,5 @@ module.exports = {
           'chore(release): ${nextRelease.version} \n\n[skip ci]\n${nextRelease.notes}',
       },
     ],
-    "@semantic-release/github",
-    [
-      'semantic-release-slack-bot',
-      {
-        notifyOnSuccess: true,
-        notifyOnFail: false,
-        slackWebhook:
-          'https://hooks.slack.com/services/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',
-        onSuccessTemplate: {
-          text: 'Version $npm_package_version of @rocos/react-native-grpc-bridge is being released, sit tight :rocket: \nThis version includes: \n $release_notes',
-        },
-      },
-    ],
   ],
 };

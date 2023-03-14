@@ -1,6 +1,6 @@
 {
-  "name": "@rocos/react-native-grpc-bridge",
-  "version": "1.0.3",
+  "name": "@team-rocos/react-native-grpc-bridge",
+  "version": "1.0.4",
   "description": "A bridge for @improbable-eng/grpc-web using native gRPC",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -25,7 +25,7 @@
     "test": "jest",
     "typescript": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "prepare": "bob build",
+    "build": "bob build",
     "release": "semantic-release",
     "release:preview": "semantic-release --dry-run",
     "example": "yarn --cwd example",
@@ -41,8 +41,11 @@
     "type": "git",
     "url": "git@github.com:team-rocos/react-native-grpc-bridge.git"
   },
-  "private": false,
+  "private": true,
   "author": "Matej Drobnic <matej.dr@gmail.com> (https://github.com/matejdr)",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/team-rocos/react-native-grpc-bridge/issues"

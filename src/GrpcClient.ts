@@ -50,7 +50,7 @@ type GrpcEvent = {
 } & GrpcEventPayload;
 
 const LINKING_ERROR =
-  `The package '@rocos/react-native-grpc-bridge' doesn't seem to be linked. Make sure: \n\n` +
+  `The package '@team-rocos/react-native-grpc-bridge' doesn't seem to be linked. Make sure: \n\n` +
   Platform.select({ ios: "- You have run 'pod install'\n", default: '' }) +
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo managed workflow\n';
