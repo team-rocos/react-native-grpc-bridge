@@ -93,6 +93,7 @@ public class GrpcBridgeModule extends ReactContextBaseJavaModule {
         call.request(1);
       } catch (Exception error) {
         promise.resolve(false);
+        return;
       }
 
       promise.resolve(true);
@@ -110,6 +111,7 @@ public class GrpcBridgeModule extends ReactContextBaseJavaModule {
         call.halfClose();
       } catch (Exception error) {
         promise.resolve(false);
+        return;
       }
 
       promise.resolve(true);
