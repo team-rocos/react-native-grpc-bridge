@@ -41,7 +41,7 @@
     "type": "git",
     "url": "git@github.com:team-rocos/react-native-grpc-bridge.git"
   },
-  "private": true,
+  "private": false,
   "author": "Matej Drobnic <matej.dr@gmail.com> (https://github.com/matejdr)",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
