@@ -1,6 +1,6 @@
 {
   "name": "@team-rocos/react-native-grpc-bridge",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A bridge for @improbable-eng/grpc-web using native gRPC",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
