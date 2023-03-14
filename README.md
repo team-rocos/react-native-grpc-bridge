@@ -1,4 +1,4 @@
-# @rocos/react-native-grpc-bridge
+# @team-rocos/react-native-grpc-bridge
 
 A bridge for @improbable-eng/grpc-web using native gRPC
 
@@ -7,7 +7,7 @@ Based on react-native-grpc from Mitch528, found [here](https://github.com/Mitch5
 ## Installation
 
 ```sh
-npm install @rocos/react-native-grpc-bridge
+npm install @team-rocos/react-native-grpc-bridge
 ```
 
 ### Node version
@@ -21,11 +21,11 @@ nvm use
 ```
 
 ## Usage
-Please add the folloing lines at the begining of your react-native application. 
+Please add the folloing lines at the begining of your react-native application.
 
 ```js
 import { grpc } from '@improbable-eng/grpc-web';
-import { NativeGRPCTransport } from '@rocos/react-native-grpc-bridge';
+import { NativeGRPCTransport } from '@team-rocos/react-native-grpc-bridge';
 grpc.setDefaultTransport(NativeGRPCTransport({ withCredentials: true }));
 ```
 

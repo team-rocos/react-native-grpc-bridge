@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@rocos/react-native-grpc-bridge": ["./src/index"]
+      "@team-rocos/react-native-grpc-bridge": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

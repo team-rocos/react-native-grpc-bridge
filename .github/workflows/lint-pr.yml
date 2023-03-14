@@ -1,0 +1,27 @@
+name: lint PR
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+
+jobs:
+  title:
+    name: Validate PR title
+    runs-on: ubuntu-latest
+    steps:
+      - uses: amannn/action-semantic-pull-request@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          requireScope: true
+          subjectPattern: ^(GRP|OPS)-\d+ - .+$
+          subjectPatternError: |
+            The subject "{subject}" found in the pull request title "{title}" didn't match the configured pattern. 
+            Please ensure that the subject is in the format: "GRP-{TICKET NUMBER} - {TITLE}". 
+            If there is a valid reason you are not using this pattern, use the `ignore-semantic-pull-request` label.
+          ignoreLabels: |
+            bot
+            ignore-semantic-pull-request

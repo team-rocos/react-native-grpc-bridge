@@ -1,0 +1,63 @@
+name: build assets
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+    branches:
+      - "*"
+  push:
+    branches:
+      - master
+  workflow_dispatch: {}
+
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup-npm
+      - run: yarn test
+
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup-npm
+      - run: yarn build
+      - uses: actions/upload-artifact@v3
+        if: github.ref == 'refs/heads/master'
+        with:
+          path: dist
+          name: dist
+
+  publish:
+    name: publish
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    needs: [test, build]
+    permissions:
+      contents: write
+      packages: write
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.CI_GITHUBTOKEN }}
+      - uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist
+      - uses: ./.github/actions/setup-npm
+      - shell: bash
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CI_GITHUBTOKEN: ${{ secrets.CI_GITHUBTOKEN }}
+        run: |
+          GITHUB_TOKEN=${CI_GITHUBTOKEN} yarn release
+          yarn publish --access public
