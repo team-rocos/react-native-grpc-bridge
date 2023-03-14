@@ -9,7 +9,7 @@ on:
       - "*"
   push:
     branches:
-      - master
+      - main
   workflow_dispatch: {}
 
 jobs:
@@ -32,7 +32,7 @@ jobs:
   publish:
     name: publish
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
     needs: [test, build]
     permissions:
       contents: write
